@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
+import ImageReveal from "@/components/ImageReveal";
 import SectionHeading from "@/components/SectionHeading";
 import ConsultSection from "@/components/ConsultSection";
 import Faq from "@/components/Faq";
@@ -78,7 +79,10 @@ export default function ServicesPage() {
               >
                 {/* image */}
                 <Reveal className="[direction:ltr]">
-                  <div className="relative">
+                  <ImageReveal
+                    className="relative"
+                    direction={flip ? "left" : "right"}
+                  >
                     <div
                       className={`gold-frame img-zoom relative aspect-[5/4] overflow-hidden rounded-sm ${
                         flip ? "ml-auto" : ""
@@ -106,7 +110,7 @@ export default function ServicesPage() {
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                  </div>
+                  </ImageReveal>
                 </Reveal>
 
                 {/* copy */}

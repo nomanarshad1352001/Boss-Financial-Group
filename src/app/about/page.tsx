@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Compass, Eye, Gem, Landmark, Quote, ShieldCheck } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
+import ImageReveal from "@/components/ImageReveal";
 import SectionHeading from "@/components/SectionHeading";
 import ConsultSection from "@/components/ConsultSection";
 import Counter from "@/components/Counter";
@@ -87,7 +88,10 @@ export default function AboutPage() {
 
             <Reveal className="order-1 lg:order-2">
               <div className="relative">
-                <div className="gold-frame img-zoom relative aspect-[4/5] w-[88%] overflow-hidden rounded-sm">
+                <ImageReveal
+                  className="gold-frame img-zoom relative aspect-[4/5] w-[88%] overflow-hidden rounded-sm"
+                  direction="left"
+                >
                   <Image
                     src={IMAGES.advisorClient}
                     alt="A BOSS advisor in consultation with a client"
@@ -95,7 +99,7 @@ export default function AboutPage() {
                     sizes="(max-width: 1024px) 100vw, 44vw"
                     className="object-cover"
                   />
-                </div>
+                </ImageReveal>
                 <div className="card-lux absolute -bottom-8 right-0 max-w-xs rounded-sm p-6">
                   <Quote size={26} className="text-gold" />
                   <p className="mt-3 font-serif-display text-lg italic leading-snug text-emerald">
@@ -154,7 +158,10 @@ export default function AboutPage() {
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <Reveal className="relative">
-              <div className="img-zoom img-duotone relative aspect-[5/4] overflow-hidden rounded-sm">
+              <ImageReveal
+                className="img-zoom img-duotone relative aspect-[5/4] overflow-hidden rounded-sm"
+                direction="right"
+              >
                 <Image
                   src={IMAGES.teamPortrait}
                   alt="The professional team at BOSS Financial Group"
@@ -162,7 +169,7 @@ export default function AboutPage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
-              </div>
+              </ImageReveal>
               <div className="absolute -bottom-10 -right-2 hidden w-64 overflow-hidden rounded-sm border-[5px] border-white shadow-[0_30px_70px_-30px_rgba(18,60,49,0.5)] sm:block lg:-right-8">
                 <Image
                   src={IMAGES.aboutMeeting}

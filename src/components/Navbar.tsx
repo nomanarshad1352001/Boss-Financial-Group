@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { Phone, Mail, Clock, Menu, X, ArrowUpRight } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/lib/data";
 
@@ -38,6 +38,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 28, mass: 0.4 });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -50,6 +52,11 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
+      {/* gold scroll progress */}
+      <motion.div
+        style={{ scaleX: progress }}
+        className="h-[3px] origin-left bg-gradient-to-r from-gold-deep via-gold to-gold-light"
+      />
       {/* top utility bar */}
       <div
         className={`hidden overflow-hidden bg-emerald text-ivory transition-all duration-500 lg:block ${

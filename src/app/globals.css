@@ -257,6 +257,25 @@ body {
 .animate-marquee {
   animation: marquee 36s linear infinite;
 }
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.animate-marquee-reverse {
+  animation: marquee-reverse 46s linear infinite;
+}
+.animate-marquee-slow {
+  animation: marquee 52s linear infinite;
+}
+.marquee-pause:hover .animate-marquee,
+.marquee-pause:hover .animate-marquee-reverse,
+.marquee-pause:hover .animate-marquee-slow {
+  animation-play-state: paused;
+}
 .marquee-mask {
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }

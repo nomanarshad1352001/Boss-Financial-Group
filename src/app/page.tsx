@@ -17,9 +17,11 @@ import {
   Sparkles,
 } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import WordsReveal from "@/components/WordsReveal";
+import ImageReveal from "@/components/ImageReveal";
 import SectionHeading from "@/components/SectionHeading";
 import ConsultSection from "@/components/ConsultSection";
-import Testimonials from "@/components/Testimonials";
+import ReviewsRail from "@/components/ReviewsRail";
 import Faq from "@/components/Faq";
 import Counter from "@/components/Counter";
 import { IMAGES, MARQUEE_ITEMS, SERVICES, SITE, STATS, WHY_CHOOSE } from "@/lib/data";
@@ -52,13 +54,15 @@ export default function HomePage() {
               <Reveal>
                 <span className="eyebrow">Welcome to BOSS Financial Group</span>
               </Reveal>
-              <Reveal delay={0.1}>
-                <h1 className="mt-6 font-serif-display text-[3.4rem] font-medium leading-[0.98] text-emerald sm:text-7xl xl:text-[5.6rem]">
-                  Wealth, guided
-                  <br />
-                  with <em className="text-gold-gradient">quiet</em> precision.
-                </h1>
-              </Reveal>
+              <h1 className="mt-6 font-serif-display text-[3.4rem] font-medium leading-[0.98] text-emerald sm:text-7xl xl:text-[5.6rem]">
+                <WordsReveal text="Wealth, guided" delay={0.15} />
+                <br />
+                <WordsReveal text="with" delay={0.45} />{" "}
+                <em className="text-gold-gradient">
+                  <WordsReveal text="quiet" delay={0.55} />
+                </em>{" "}
+                <WordsReveal text="precision." delay={0.65} />
+              </h1>
               <Reveal delay={0.2}>
                 <p className="mt-7 max-w-xl text-[1.02rem] leading-relaxed text-slate">
                   At BOSS Financial Group, we are dedicated to providing comprehensive financial
@@ -149,7 +153,7 @@ export default function HomePage() {
           <div className="grid items-center gap-16 lg:grid-cols-2">
             {/* collage */}
             <Reveal className="relative">
-              <div className="img-zoom img-duotone relative aspect-[5/4] overflow-hidden rounded-sm">
+              <ImageReveal className="img-zoom img-duotone relative aspect-[5/4] overflow-hidden rounded-sm">
                 <Image
                   src={IMAGES.aboutTeam}
                   alt="BOSS Financial Group advisors collaborating with clients"
@@ -157,7 +161,7 @@ export default function HomePage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
-              </div>
+              </ImageReveal>
               <div className="gold-frame absolute -bottom-10 right-4 hidden w-64 overflow-hidden rounded-sm border-[5px] border-white shadow-[0_30px_70px_-30px_rgba(18,60,49,0.5)] sm:block">
                 <Image
                   src={IMAGES.signingDocs}
@@ -263,7 +267,10 @@ export default function HomePage() {
               return (
                 <Reveal key={service.slug} delay={(i % 2) * 0.12}>
                   <article className="card-lux group relative flex h-full flex-col overflow-hidden rounded-sm">
-                    <div className="img-zoom relative h-60 overflow-hidden">
+                    <ImageReveal
+                      className="img-zoom relative h-60 overflow-hidden"
+                      direction={i % 2 === 0 ? "up" : "right"}
+                    >
                       <Image
                         src={service.image}
                         alt={service.title}
@@ -278,7 +285,7 @@ export default function HomePage() {
                       <span className="absolute bottom-4 right-5 font-serif-display text-5xl font-semibold italic text-white/25">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                    </div>
+                    </ImageReveal>
                     <div className="flex flex-1 flex-col p-8">
                       <h3 className="font-serif-display text-[1.75rem] font-medium leading-tight text-emerald">
                         {service.title}
@@ -376,7 +383,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= TESTIMONIALS ================= */}
+      {/* ================= REVIEWS RAILING SLIDE ================= */}
       <section className="noise-bg relative overflow-hidden py-24 md:py-32">
         <div className="dotted-map absolute left-1/2 top-1/2 h-[42rem] w-[42rem] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-30" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
@@ -390,10 +397,10 @@ export default function HomePage() {
             }
             className="mb-16"
           />
-          <Reveal>
-            <Testimonials />
-          </Reveal>
         </div>
+        <Reveal className="relative">
+          <ReviewsRail />
+        </Reveal>
       </section>
 
       {/* ================= FAQ ================= */}

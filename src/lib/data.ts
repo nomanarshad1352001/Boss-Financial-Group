@@ -60,6 +60,10 @@ export const AVATARS = {
     "https://images.pexels.com/photos/18351014/pexels-photo-18351014.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=200&h=200",
   ethan:
     "https://images.pexels.com/photos/31647492/pexels-photo-31647492.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=200&h=200",
+  priya:
+    "https://images.pexels.com/photos/7752788/pexels-photo-7752788.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=200&h=200",
+  robert:
+    "https://images.pexels.com/photos/33048698/pexels-photo-33048698.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=200&h=200",
 };
 
 /* ---------------- services ---------------- */
@@ -203,6 +207,20 @@ export const TESTIMONIALS = [
     name: "Ethan Cole",
     role: "Restaurant Group Director",
     avatar: AVATARS.ethan,
+  },
+  {
+    quote:
+      "From valuation to closing, the sale of my dental practice was handled with total discretion. I could not have asked for a smoother transition.",
+    name: "Priya Nair",
+    role: "Dental Practice Owner",
+    avatar: AVATARS.priya,
+  },
+  {
+    quote:
+      "Reactive accountants are everywhere. Proactive advisors are rare — BOSS plans our tax strategy a full year ahead, every year.",
+    name: "Robert Hale",
+    role: "Real Estate Investor",
+    avatar: AVATARS.robert,
   },
 ];
 
